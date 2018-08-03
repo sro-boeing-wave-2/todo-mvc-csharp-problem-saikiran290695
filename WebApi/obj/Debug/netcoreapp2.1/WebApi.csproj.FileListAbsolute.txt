@@ -1,0 +1,14 @@
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\bin\Debug\netcoreapp2.1\WebApi.deps.json
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\bin\Debug\netcoreapp2.1\WebApi.runtimeconfig.json
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\bin\Debug\netcoreapp2.1\WebApi.runtimeconfig.dev.json
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\bin\Debug\netcoreapp2.1\WebApi.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\obj\Debug\netcoreapp2.1\WebApi.csprojAssemblyReference.cache
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\obj\Debug\netcoreapp2.1\WebApi.csproj.CoreCompileInputs.cache
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\obj\Debug\netcoreapp2.1\WebApi.RazorAssemblyInfo.cache
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\obj\Debug\netcoreapp2.1\WebApi.RazorAssemblyInfo.cs
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\obj\Debug\netcoreapp2.1\WebApi.AssemblyInfoInputs.cache
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\obj\Debug\netcoreapp2.1\WebApi.AssemblyInfo.cs
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\obj\Debug\netcoreapp2.1\WebApi.RazorTargetAssemblyInfo.cache
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\bin\Debug\netcoreapp2.1\WebApi.pdb
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\obj\Debug\netcoreapp2.1\WebApi.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\WebApi\obj\Debug\netcoreapp2.1\WebApi.pdb
