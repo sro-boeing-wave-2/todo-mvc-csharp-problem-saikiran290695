@@ -14,5 +14,7 @@ namespace ProjectX.Models
         }
 
         public DbSet<ProjectX.Models.Note> Note { get; set; }
+        public DbSet<ProjectX.Models.CheckList> CheckList { get; set; }
+        public DbSet<ProjectX.Models.Label> Label { get; set; }
     }
 }

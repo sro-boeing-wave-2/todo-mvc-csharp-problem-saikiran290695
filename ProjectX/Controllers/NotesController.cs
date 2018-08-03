@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ProjectX.Models;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+
+using ProjectX.Models;
 
 namespace ProjectX.Controllers
 {
@@ -20,46 +21,31 @@ namespace ProjectX.Controllers
         {
             _context = context;
         }
-
-        // GET: api/Notes
         [HttpGet]
-        public IEnumerable<Note> GetNote()
-        {
-            return _context.Note.Include(x=>x.CheckList).Include(x=>x.Label);
-        }
-
-        // GET: api/Notes/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetNote([FromRoute] string id)
+        public IActionResult GetNoteByPrimitive(
+            [FromQuery(Name = "Id")] int Id,
+            [FromQuery(Name = "Title")] string Title,
+            [FromQuery(Name = "Message")] string Message,
+            [FromQuery(Name = "Pinned")] string Pinned,
+            [FromQuery(Name = "Label")] string Label) 
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            List<Note> temp = new List<Note>(); 
-            //var note = from Lists in _context.Note.Include(x => x.CheckList).Include(x => x.Label)
-            //            where Lists.Title == id 
-            //            select Lists;
-            await _context.Note.Include(x => x.CheckList).Include(x => x.Label).ForEachAsync(Lists =>
-            {
-                Lists.CheckList.ForEach(element => {
-                    if (element.Equals(id))
-                     temp.Add(Lists);
-            });
-            });
-            var note = temp;
-
-            //var note =  _context.Note.Include(x => x.CheckList).Include(x => x.Label);
-
-            Console.WriteLine(note);
-                //Note.Include(x => x.CheckList).Include(x => x.Label);
-
-            if (note == null)
+            List<Note> temp = new List<Note>();
+            temp = _context.Note.Include(x => x.CheckList).Include(x => x.Label)
+                .Where(element => element.Title == ((Title == null) ? element.Title : Title)
+                      && element.Message == ((Message == null) ? element.Message : Message)
+                      && element.Pinned == ((Pinned == null) ? element.Pinned : Convert.ToBoolean(Pinned))
+                      && element.Id == ((Id == 0) ? element.Id : Id)
+                      && element.Label.Any(x => (Label != null) ? x.label == Label : true )).ToList();
+            if (temp == null)
             {
                 return NotFound();
             }
 
-            return Ok(note);
+            return Ok(temp);
         }
 
         // PUT: api/Notes/5
@@ -75,38 +61,20 @@ namespace ProjectX.Controllers
             {
                 return BadRequest();
             }
+            await _context.Note.Include(x => x.CheckList).Include(x => x.Label).ForEachAsync(element =>
+            {
+                if (element.Id == note.Id)
+                {
+                    element.Message = note.Message;
+                    element.Pinned = note.Pinned;
+                    element.Title = note.Title;
+                    _context.Label.RemoveRange(element.Label);
+                    element.Label.AddRange(note.Label);
+                    _context.CheckList.RemoveRange(element.CheckList);
+                    element.CheckList.AddRange(note.CheckList);
+                }
+            });
             
-            //Console.WriteLine(note.CheckList.ToString() + note.Label.ToString);
-           await _context.Note.Include(x => x.CheckList).Include(x => x.Label).ForEachAsync(element => {
-               //  element.Id = note.Id;
-
-               if (element.Id == note.Id)
-               {
-                   element.Message = note.Message;
-                   element.Pinned = note.Pinned;
-                   element.Title = note.Title;
-                   List<Label> temp = note.Label;
-                   List<Label> actual = element.Label;
-
-
-                   temp.ForEach(label =>
-                   {
-                       actual.ForEach(actualLabel =>
-                       {
-                           if (label.Id == actualLabel.Id)
-                           {
-                               actualLabel.label = label.label;
-                               actualLabel.
-                           }
-                       });
-                   });
-                   element.Label.AddRange(temp);
-               }
-           });
-            //_context.Entry(note).State = EntityState.Modified;
-            //_context.Entry(note.CheckList).State = EntityState.Modified;
-            //_context.Entry(note.Label).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -122,9 +90,7 @@ namespace ProjectX.Controllers
                 {
                     throw;
                 }
-            }
-
-            
+            }        
         }
 
         // POST: api/Notes
@@ -135,34 +101,42 @@ namespace ProjectX.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             _context.Note.Add(note);
             await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetNote", new { id = note.Id }, note);
+            return CreatedAtAction(nameof(GetNoteByPrimitive), new { id = note.Id }, note);
         }
-
         // DELETE: api/Notes/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteNote([FromRoute] int id)
+        [HttpDelete]
+        public async Task<IActionResult> DeleteNote(
+            [FromQuery(Name = "Id")] int Id,
+            [FromQuery(Name = "Title")] string Title,
+            [FromQuery(Name = "Message")] string Message,
+            [FromQuery(Name = "Pinned")] string Pinned,
+            [FromQuery(Name = "Label")] string Label)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            var note = await _context.Note.Include(x => x.CheckList).Include(x => x.Label).SingleOrDefaultAsync(x => x.Id == id);
+            List<Note> note = _context.Note.Include(x => x.CheckList).Include(x => x.Label)
+                .Where(element =>
+                element.Id == ((Id == 0) ? element.Id : Id)
+                && element.Title == ((Title == null) ? element.Title : Title)
+                && element.Message == ((Message == null) ? element.Message : Message)
+                && element.Pinned == ((Pinned == null) ? element.Pinned : Convert.ToBoolean(Pinned))
+                && element.Label.Any(label => label.label == ((Label == null) ? label.label: Label))             
+                ).ToList();
             if (note == null)
             {
                 return NotFound();
             }
-
-            _context.Note.Remove(note);
+            note.ForEach(NoteDel => _context.CheckList.RemoveRange(NoteDel.CheckList));
+            note.ForEach(NoteDel => _context.Label.RemoveRange(NoteDel.Label));
+            _context.Note.RemoveRange(note);    
+            
             await _context.SaveChangesAsync();
-
             return Ok(note);
         }
-
         private bool NoteExists(int id)
         {
             return _context.Note.Any(e => e.Id == id);
