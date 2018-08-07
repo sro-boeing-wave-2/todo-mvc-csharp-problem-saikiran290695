@@ -1,0 +1,17 @@
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\bin\Debug\netcoreapp2.1\NSuperUnit.Test.deps.json
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\bin\Debug\netcoreapp2.1\NSuperUnit.Test.runtimeconfig.json
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\bin\Debug\netcoreapp2.1\NSuperUnit.Test.runtimeconfig.dev.json
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\bin\Debug\netcoreapp2.1\NSuperUnit.Test.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\obj\Debug\netcoreapp2.1\NSuperUnit.Test.csprojAssemblyReference.cache
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\obj\Debug\netcoreapp2.1\NSuperUnit.Test.csproj.CoreCompileInputs.cache
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\obj\Debug\netcoreapp2.1\NSuperUnit.Test.AssemblyInfoInputs.cache
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\obj\Debug\netcoreapp2.1\NSuperUnit.Test.AssemblyInfo.cs
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\bin\Debug\netcoreapp2.1\NSuperUnit.Test.pdb
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\bin\Debug\netcoreapp2.1\ProjectX.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\bin\Debug\netcoreapp2.1\ProjectX.pdb
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\obj\Debug\netcoreapp2.1\NSuperUnit.Test.csproj.CopyComplete
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\obj\Debug\netcoreapp2.1\NSuperUnit.Test.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\NSuperUnitTest\obj\Debug\netcoreapp2.1\NSuperUnit.Test.pdb

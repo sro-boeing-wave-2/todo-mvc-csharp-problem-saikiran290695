@@ -1,0 +1,17 @@
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\bin\Debug\netcoreapp2.1\XUnitTestingProjectX.deps.json
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\bin\Debug\netcoreapp2.1\XUnitTestingProjectX.runtimeconfig.json
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\bin\Debug\netcoreapp2.1\XUnitTestingProjectX.runtimeconfig.dev.json
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\bin\Debug\netcoreapp2.1\XUnitTestingProjectX.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\obj\Debug\netcoreapp2.1\XUnitTestingProjectX.csprojAssemblyReference.cache
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\obj\Debug\netcoreapp2.1\XUnitTestingProjectX.csproj.CoreCompileInputs.cache
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\obj\Debug\netcoreapp2.1\XUnitTestingProjectX.AssemblyInfoInputs.cache
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\obj\Debug\netcoreapp2.1\XUnitTestingProjectX.AssemblyInfo.cs
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\bin\Debug\netcoreapp2.1\ProjectX.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\bin\Debug\netcoreapp2.1\ProjectX.pdb
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\obj\Debug\netcoreapp2.1\XUnitTestingProjectX.csproj.CopyComplete
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\bin\Debug\netcoreapp2.1\XUnitTestingProjectX.pdb
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\obj\Debug\netcoreapp2.1\XUnitTestingProjectX.dll
+D:\StackRoute\C#\ASP.Net\Assignment\todo-mvc-csharp-problem-saikiran290695\XUnitTestingProjectX\obj\Debug\netcoreapp2.1\XUnitTestingProjectX.pdb

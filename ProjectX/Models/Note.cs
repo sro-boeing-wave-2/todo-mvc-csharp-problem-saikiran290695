@@ -13,6 +13,12 @@ namespace ProjectX.Models
         public List<CheckList> CheckList { get; set; }
         public List<Label> Label { get; set; }
         public bool Pinned { get; set; }
+        public bool IsEquals(Note n)
+        {
+            if (this.Title == n.Title && this.Message == n.Message && this.Pinned == n.Pinned)
+                return true;
+            return false;
+        }
     }
     public class CheckList {
         public int Id { get; set; }
