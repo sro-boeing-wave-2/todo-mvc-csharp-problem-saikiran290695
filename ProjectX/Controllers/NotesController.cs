@@ -18,7 +18,6 @@ namespace ProjectX.Controllers
     public class NotesController : ControllerBase
     {
         private readonly INotesService _NoteServices;
-        //private readonly NoteContext _context;
 
         public NotesController(NoteContext context)
         {
@@ -55,7 +54,7 @@ namespace ProjectX.Controllers
             {
                 return BadRequest();
             }
-               bool flag = await _NoteServices.PutNote(id, note);
+               bool flag = await _NoteServices.PutNote(note);
                 if (flag)
                     return Ok(note);
                 else
@@ -87,8 +86,7 @@ namespace ProjectX.Controllers
             {
                 return BadRequest(ModelState);
             }
-            List<Note> note;
-                note = await _NoteServices.DeleteNote(Id, Title, Message, Pinned, Label);
+            List<Note> note = await _NoteServices.DeleteNote(Id, Title, Message, Pinned, Label);
                 if (note.Count == 0)
                 {
                     return NotFound();

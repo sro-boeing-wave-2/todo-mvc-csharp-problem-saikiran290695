@@ -18,29 +18,30 @@ namespace ProjectX.Services
         public List<Note> GetNoteByPrimitive(int Id, string Title, string Message, string Pinned, string Label) {
             List<Note> temp;
             temp = _context.Note.Include(x => x.CheckList).Include(x => x.Label)
-                .Where(element => element.Title == ((Title == null) ? element.Title : Title)
-                      && element.Message == ((Message == null) ? element.Message : Message)
-                      && element.Pinned == ((Pinned == null) ? element.Pinned : Convert.ToBoolean(Pinned))
-                      && element.Id == ((Id == 0) ? element.Id : Id)
-                      && element.Label.Any(x => (Label != null) ? x.label == Label : true)).ToList();
+                .Where(element => element.Title == (Title == null ? element.Title : Title)
+                      && element.Message == (Message == null ? element.Message : Message)
+                      && element.Pinned == (Pinned == null ? element.Pinned : Convert.ToBoolean(Pinned))
+                      && element.Id == (Id == 0 ? element.Id : Id)
+                      && element.Label.Any(x => Label != null ? x.label == Label : true))
+                      .ToList();
             return temp;
-        }
-        public async Task<bool> PutNote(int id, Note note) {
+        }// brackets
+        public async Task<bool> PutNote(Note note) {
             bool flag = false;
-          await _context.Note.Include(x => x.CheckList).Include(x => x.Label).ForEachAsync(element =>
+            //Func<Note, Note> FuncToUpdateNote(Note A);
+
+            Note element = await _context.Note.Include(x => x.CheckList).Include(x => x.Label).SingleAsync(x => x.Id == note.Id);
+            if (element != null)
             {
-                if (element.Id == note.Id)
-                {
-                    flag = true;
-                    element.Message = note.Message;
-                    element.Pinned = note.Pinned;
-                    element.Title = note.Title;
-                    _context.Label.RemoveRange(element.Label);
-                    element.Label.AddRange(note.Label);
-                    _context.CheckList.RemoveRange(element.CheckList);
-                    element.CheckList.AddRange(note.CheckList);
-                }
-            });
+                flag = true;
+                element.Message = note.Message;
+                element.Pinned = note.Pinned;
+                element.Title = note.Title;
+                _context.Label.RemoveRange(element.Label);
+                element.Label.AddRange(note.Label);
+                _context.CheckList.RemoveRange(element.CheckList);
+                element.CheckList.AddRange(note.CheckList);
+            }
             if(flag)
             await _context.SaveChangesAsync();
             return flag;

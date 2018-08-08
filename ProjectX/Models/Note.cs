@@ -13,6 +13,14 @@ namespace ProjectX.Models
         public List<CheckList> CheckList { get; set; }
         public List<Label> Label { get; set; }
         public bool Pinned { get; set; }
+        //public override bool Equals(object Obj)
+        //{
+        //    Note n = (Note) Obj;
+        //    if (this.Title == n.Title && this.Message == n.Message && this.Pinned == n.Pinned && this.CheckList.CheckListIsEquals(n.CheckList) && this.Label.LabelIsEqual(n.Label))
+        //        return true;
+        //    return false;
+        //}
+
         public bool IsEquals(Note n)
         {
             if (this.Title == n.Title && this.Message == n.Message && this.Pinned == n.Pinned && this.CheckList.CheckListIsEquals(n.CheckList) && this.Label.LabelIsEqual(n.Label))
@@ -25,7 +33,13 @@ namespace ProjectX.Models
         public string Checklist { get; set; }
         public bool IsChecked { get; set; }
     }
-    
+
+    public class Label
+    {
+        public int Id { get; set; }
+        public string label { get; set; }
+    }
+
     public static class ExtensionList {
         public static bool CheckListIsEquals(this List<CheckList> present, List<CheckList> n )
         {
@@ -54,8 +68,5 @@ namespace ProjectX.Models
             return flag;
         }
     }
-    public class Label {
-        public int Id { get; set; }
-        public string label { get; set; }
-    }
+    
 }

@@ -152,7 +152,6 @@ namespace NSuperUnit.Test
                new CheckList{Checklist="third item", IsChecked = true},
                }
         };
-
         [Fact]
         public async void TestGet()
         {
