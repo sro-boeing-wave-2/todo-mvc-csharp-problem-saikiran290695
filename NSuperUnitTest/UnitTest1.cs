@@ -25,17 +25,17 @@ namespace NSuperUnit.Test
 
         public UnitTest1() {
             var host = new TestServer(
-                new WebHostBuilder()           
+                new WebHostBuilder()
                 .UseEnvironment("Testing")
                 .UseStartup<Startup>()
-                );            
+                );
             _context = host.Host.Services.GetService(typeof(NoteContext)) as NoteContext;
-            _client = host.CreateClient();          
+            _client = host.CreateClient();
             _context.Note.AddRange(TestNoteProper1);
             _context.Note.AddRange(TestNoteProper2);
             _context.Note.AddRange(TestNoteDelete);
             _context.SaveChanges();
-            
+
         }
         Note TestNoteProper1 = new Note() {
             Title = "Title-1-Deletable",
@@ -70,21 +70,21 @@ namespace NSuperUnit.Test
         };
         Note TestNoteProper = new Note()
         {
-                Id=1,
-                Title = "Title-1-Updatable",
-                Message = "Message-1-Updatable",
-                CheckList = new List<CheckList>()
+            Id = 1,
+            Title = "Title-1-Updatable",
+            Message = "Message-1-Updatable",
+            CheckList = new List<CheckList>()
                         {
                             new CheckList(){ Checklist = "checklist-1", IsChecked = true},
                             new CheckList(){ Checklist = "checklist-2", IsChecked = false}
                         },
-                Label = new List<Label>()
+            Label = new List<Label>()
                         {
                             new Label(){label = "Label-1-Deletable"},
                             new Label(){ label = "Label-2-Updatable"}
                         },
-                Pinned = true
-            };
+            Pinned = true
+        };
         Note TestNotePut = new Note
         {
             Id = 1,
@@ -118,6 +118,22 @@ namespace NSuperUnit.Test
                         },
             Pinned = false
         };
+        Object TestImproperNotePost = new
+        {
+            Title = "Title-2-Deletable",
+            Message = "Message-2-Deletable",
+            CheckList = new List<Object>()
+                        {
+                            new { Checklist = "checklist-2-1", IsChecked = "true1"},
+                            new { Checklist = "checklist-2-2", IsChecked = "false2"}
+                        },
+            Label = new List<Object>()
+                        {
+                            new {label = "Label-2-1-Deletable"},
+                            new { label = "Label-2-2-Deletable"}
+                        },
+            Pinned = false
+        };
         Note TestNoteDelete = new Note()
         {
             Title = "this is deleted title",
@@ -136,7 +152,7 @@ namespace NSuperUnit.Test
                new CheckList{Checklist="third item", IsChecked = true},
                }
         };
-                      
+
         [Fact]
         public async void TestGet()
         {
@@ -144,7 +160,7 @@ namespace NSuperUnit.Test
             var responsestring = await response.Content.ReadAsStringAsync();
             var responsenote = JsonConvert.DeserializeObject<List<Note>>(responsestring);
             Console.WriteLine(responsenote.ToString());
-            Assert.Equal(3,responsenote.Count);
+            Assert.Equal(3, responsenote.Count);
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
         [Fact]
@@ -205,7 +221,40 @@ namespace NSuperUnit.Test
             var responsecode = response.StatusCode;
             Assert.Equal(HttpStatusCode.NoContent, responsecode);
         }
-        //IWebHostBuilder 
+        [Fact]
+        public async void TestGetByOutOfRangeId()
+        {
+            var response = await _client.GetAsync("/api/Notes?Id=4");
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+        }
+        [Fact]
+        public async void TestGetByImproperTitile() {
+            var response = await _client.GetAsync("/api/Notes?Title=4");
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+        }
+        [Fact]
+        public async void TestGetByImproperLabel()
+        {
+            var response = await _client.GetAsync("/api/Notes?Label=4");
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+        }
+        [Fact]
+        public async void TestPostImproper()
+        {
+            var json = JsonConvert.SerializeObject(TestImproperNotePost);
+            var stringcontent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+            var response = await _client.PostAsync("/api/Notes", stringcontent);
+            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        }
+        [Fact]
+        public async void TestDeleteImproper()
+        {
+            var response = await _client.DeleteAsync("api/Notes?Title=Random delete which does not exist in db");
+            var responsecode = response.StatusCode;
+            Assert.Equal(HttpStatusCode.NotFound, responsecode);
+        }
+
+
 
 
 

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.InMemory;
 using System.Collections.Generic;
+using System.Net;
 
 namespace XUnitTestingProjectX
 {
@@ -88,12 +89,10 @@ namespace XUnitTestingProjectX
             var dbBuilder = new DbContextOptionsBuilder<NoteContext>();
             dbBuilder.UseInMemoryDatabase(Guid.NewGuid().ToString());
             var context = new NoteContext(dbBuilder.Options);
-
             _context = context;
             _context.Note.AddRange(TestNoteProper);
             _context.Note.AddRange(TestNoteDelete);
             _context.SaveChangesAsync();
-
             _controller = new NotesController(_context);
 
         }
