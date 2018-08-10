@@ -34,10 +34,10 @@ namespace ProjectX.Controllers
         {
             List<Note> temp = _NoteServices.GetNoteByPrimitive(Id,Title,Message,Pinned,Label);
             
-            if (temp.Count == 0 )
-            {
-                return NotFound();
-            }
+            //if (temp.Count == 0 )
+            //{
+            //    return NotFound();
+            //}
 
             return Ok(temp);
         }
